@@ -1,5 +1,6 @@
 const User = require('../models/userSchema');
 const { extractTextFromImage, sendOTP } = require('../utils/verification');
+const fs = require('fs').promises; // Use promise-based API for fs
 
 async function verifyPAN(req, res) {
   try {
@@ -57,10 +58,12 @@ async function verifyPAN(req, res) {
       });
     } finally {
       // Clean up uploaded file
-      const fs = require('fs');
-      fs.unlink(filePath, (err) => {
-        if (err) console.error(`Error deleting file ${filePath}:`, err);
-      });
+      try {
+        await fs.unlink(filePath);
+        console.log(`File ${filePath} deleted successfully.`);
+      } catch (err) {
+        console.error(`Error deleting file ${filePath}:`, err);
+      }
     }
   } catch (error) {
     console.error(error);
