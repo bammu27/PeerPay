@@ -1,5 +1,15 @@
 const Tesseract = require('tesseract.js');
 
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+// Initialize Firebase
+
+
 /**
  * Extracts text from an image using Tesseract.js
  * @param {string} imagePath - Path to the image file
@@ -15,23 +25,11 @@ async function extractTextFromImage(imagePath) {
   }
 }
 
-// Example usage
+/**
+ * Sends an OTP using Firebase Authentication
+ * @param {string} phoneNumber - The user's phone number in E.164 format
+ * @returns {Promise} - A promise that resolves with a confirmation result
+ */
 
 
-function sendOTP(phoneNumber) {
-  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  
-  return new Promise((resolve, reject) => {
-    client.messages
-      .create({
-        body: `Your OTP is: ${otp}`,
-        to: phoneNumber,
-        from: process.env.TWILIO_PHONE_NUMBER,
-      })
-      .then((message) => resolve({ otp, messageId: message.sid }))
-      .catch((error) => reject(error));
-  });
-}
-
-module.exports = { extractTextFromImage, sendOTP };
+module.exports = { extractTextFromImage };

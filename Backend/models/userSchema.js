@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const moment = require("moment");
+const getCoordinates = require("./getCoordinates.js"); // Assuming you have this function to get coordinates
+const { stringify } = require("uuid");
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -9,7 +11,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     match: [/^\d{4} \d{4} \d{4}$/, "Aadhaar number must be in the format XXXX XXXX XXXX"],
   },
-  
   pan: {
     type: String,
     required: true,
@@ -57,6 +58,56 @@ const userSchema = new mongoose.Schema({
       match: [/^\d{6}$/, "Pincode must be a 6-digit number"],
     },
   },
+  latitude: { type: Number },  // Added field for latitude
+  longitude: { type: Number }, // Added field for longitude
+  password: {
+    type: String,
+    
+  },
+  secretKey:{
+    type:String,
+  },
+  Amount:{
+    type: mongoose.Types.Decimal128,
+    default:2000,
+
+  },
+  interest_rate:{
+    type: mongoose.Types.Decimal128,
+  
+ }
+  
+});
+
+// Pre-save hook to set latitude and longitude before saving the user
+
+userSchema.pre("save", async function (next) {
+  if (this.isModified("address")) {
+    try {
+      // Fetch the coordinates based on the user's address
+      const coordinates = await getCoordinates({
+        street: this.address.street,
+        city: this.address.city,
+        state: this.address.state,
+        pincode: this.address.pincode,
+      });
+
+      // Set the latitude and longitude fields
+      this.latitude = coordinates.lat;
+      this.longitude = coordinates.lon;
+
+      
+      // Call next() to proceed with saving the user
+
+      next();
+    } catch (error) {
+      // Handle any errors, for example, log the error or pass it to the next middleware
+      return next(error);
+    }
+  } else {
+    // If the address is not modified, just proceed
+    next();
+  }
 });
 
 const User = mongoose.model("User", userSchema);

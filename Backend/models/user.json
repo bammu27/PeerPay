@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Raghav Kumar",
+        "aadhaar": "1234 5678 9012",
+        "pan": "ATQPK1234L",
+        "dob": "1990-05-20T00:00:00.000+00:00",
+        "phone": "9876543210",
+        "email": "raghavkumar@example.com",
+        "aadhaarVerified": true,
+        "panVerified": true,
+        "phoneVerified": true,
+        "address": {
+            "street": "Main Street",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001"
+        },
+        "latitude": 13.0827,
+        "longitude": 80.2707,
+        "password": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "secretKey": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "adar_phoneno": "9876543210",
+        "Amount": 2000.00,
+        "interest_rate": 10.0
+    },
+    {
+        "name": "Ananya Sharma",
+        "aadhaar": "8765 4321 0987",
+        "pan": "BPTPK5678M",
+        "dob": "1995-07-12T00:00:00.000+00:00",
+        "phone": "9123456789",
+        "email": "ananyasharma@example.com",
+        "aadhaarVerified": true,
+        "panVerified": true,
+        "phoneVerified": true,
+        "address": {
+            "street": "Rajpath",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001"
+        },
+        "latitude": 28.7041,
+        "longitude": 77.1025,
+        "password": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "secretKey": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "adar_phoneno": "9123456789",
+        "Amount": 2000.00,
+        "interest_rate": 10.0
+    },
+    {
+        "name": "Vikram Singh",
+        "aadhaar": "2345 6789 0123",
+        "pan": "CTTPK8901N",
+        "dob": "1987-11-23T00:00:00.000+00:00",
+        "phone": "8912345670",
+        "email": "vikramsingh@example.com",
+        "aadhaarVerified": true,
+        "panVerified": true,
+        "phoneVerified": true,
+        "address": {
+            "street": "Marine Drive",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400020"
+        },
+        "latitude": 19.076,
+        "longitude": 72.8777,
+        "password": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "secretKey": "$2y$10$CNSBQOBI.mUjGPK3z4d.4.eTCzp5pw.35CwMorDU4ISRPgOcfdbtC",
+        "adar_phoneno": "8912345670",
+        "Amount": 2000.00,
+        "interest_rate": 10.0
+    }
+]
